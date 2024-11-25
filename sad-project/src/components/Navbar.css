@@ -1,0 +1,87 @@
+/* Nav Bar Styles */
+.navBar {
+    background-color: #2264d1;
+    height: 80px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 1rem;
+    position: fixed;
+    z-index: 10;
+}
+nav {
+    background-color: #2264d1;
+    max-width: 100vw;
+    height: 80px;
+}
+
+.nav-logo { 
+   
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 70px;
+    width: 50px;
+}
+.nav-sections a {
+    text-decoration: none;
+    color: white;
+}
+.nav-sections li {
+    list-style-type: none;
+}
+.nav-sections a:hover {
+    background-color: #2264d1;
+    border: 2px solid white;
+    border-radius: 10px;
+    color: white;
+    padding: 10px;
+}
+.nav-sections  ul {
+    display: flex;
+    gap: 60px;
+}
+.nav-buttons {
+    padding: 10px;
+}
+.white-btn {
+    background-color: white;
+    padding: 10px;
+    border-radius: 10px;
+}
+.nav-buttons:hover {
+    background-color: white;
+    color: #2264d1;
+    padding: 10px;
+    border-radius: 10px;
+}
+ .login-signup li {
+    list-style-type: none;
+ }
+ .login-signup a {
+    text-decoration: none;
+    background-color: white;
+    padding: 10px;
+    border-radius: 10px;
+    color: #2264d1;
+    font-weight: 600;
+    border: 2px solid transparent;
+ }
+ .login-signup ul {
+    display: flex;
+    gap: 30px;
+ }
+ .login-signup a:hover {
+    background-color: #2264d1;
+    border: 2px solid white;
+    border-radius: 10px;
+    color: white;
+    padding: 10px;
+ }
+
+ header {
+    position: sticky;
+    top: 0px;
+    
+ }
+ 

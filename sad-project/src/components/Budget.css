@@ -1,0 +1,115 @@
+.hero-section-container {
+    height: 600px;
+    background-image: url('../assets/BG-img/home-page-img.jpg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.hero-section-img img {
+    margin-right: 110px;
+}
+
+#page-mini-title {
+    font-size: 2.5rem;
+    color: #2264d1;
+}
+#page-big-title {
+    font-size: 3rem;
+    margin-top: -15px;
+}
+.underline {
+    height: 5px;
+    width: 350px;
+    background-color: #2264d1;
+}
+
+.budget-packages-description {
+    width: 400px;
+    margin-top: 50px;
+    text-align: justify;
+}
+.about-us-description p {
+    text-align: justify;
+}
+.hero-section {
+    margin-left: 110px;
+}
+
+.budget-packages-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.our-budget-packages {
+    height: 50px;
+    width: 88%;
+    background-color: #2264d1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.85rem;
+    font-weight: 700;
+    color: white;
+    border-radius: 10px;
+    margin-bottom: 60px;
+    margin-top: 30px;
+}
+
+.packages {
+    height: 280px;
+    width: 280px;
+    background-color: white;
+    border-radius: 30px;
+    padding: 40px;
+}
+.budget-pack-detail-container {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 80px;
+}
+
+.pack-head {
+    font-size: 1.60rem;
+    margin-bottom: 10px;
+    color: #282828;
+}
+.blue-text {
+    color: #2264d1;
+}
+.details {
+    color: #282828;
+    font-size: 1.10rem;
+    margin-top: 5px;
+}
+.price-pack .buy-pack-btn {
+    background-color: #2264d1;
+    padding: 5px 10px;
+    border-radius: 10px;
+    font-size: 1.5rem;
+    text-decoration: none;
+    color: white;
+    font-weight: 700;
+    border: 2px solid transparent;
+}
+.buy-pack-btn {
+    margin-left: 50px;
+    padding: 5px 10px;
+    border: 2px solid transparent;
+}
+.buy-pack-btn:hover {
+    background-color: white;
+    border: 2px solid #2264d1;
+    border-radius: 10px;
+    color: #282828;
+}
+.pack-buttons {
+    margin-top: 40px;
+}
+.title-pack {
+    text-align: center;
+    font-size: 2rem;
+    margin-top: 20px;
+    color: #282828;
+}

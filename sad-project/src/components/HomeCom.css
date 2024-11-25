@@ -1,0 +1,101 @@
+.hero-section-container {
+    height: 600px;
+    background-image: url('../assets/BG-img/home-page-img.jpg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.hero-section-img img {
+    margin-right: 110px;
+}
+
+#page-mini-title {
+    font-size: 2.5rem;
+    color: #2264d1;
+}
+#page-big-title {
+    font-size: 3rem;
+    margin-top: -15px;
+}
+.underline {
+    height: 5px;
+    width: 350px;
+    background-color: #2264d1;
+}
+.about-us-button {
+    padding: 10px;
+    background-color: #2264d1;
+    width: 100px;
+    font-weight: 700;
+    color: white;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 60px;
+}
+.about-us-description {
+    width: 400px;
+    margin-top: 20px;
+}
+.about-us-description p {
+    text-align: justify;
+}
+.hero-section {
+    margin-left: 110px;
+}
+
+.most-visited-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.most-visited-location {
+    height: 50px;
+    width: 88%;
+    background-color: #2264d1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.85rem;
+    font-weight: 700;
+    color: white;
+    border-radius: 10px;
+    margin-bottom: 60px;
+    margin-top: 30px;
+}
+.location-containers {
+    display: flex;
+    justify-content: space-around;
+}
+.locations {
+    height: 250px;
+    width: 250px;
+    border-radius: 30px;
+    background-color: white;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.location1 {
+    background-image: url('../assets/Home-page-photo/cox-bazar.jpg');
+}
+.location2 {
+    background-image: url('../assets/Home-page-photo/Rangamati.jpg');
+}
+.location3 {
+    background-image: url('../assets/Home-page-photo/Shitakundo.jpg');
+}
+.location4 {
+    background-image: url('../assets/Home-page-photo/tanguar-hawar.jpg');
+}
+
+.loc p {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-top: 35px;
+    margin-bottom: 60px;
+}
