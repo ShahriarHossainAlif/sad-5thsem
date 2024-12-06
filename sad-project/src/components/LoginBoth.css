@@ -1,0 +1,74 @@
+/* Wrapper to center the component */
+.center-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+    background-color: rgb(33, 97, 202); /* Background specific to this component */
+
+}
+  
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    width: 50%;
+    margin-left: 25%;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    margin-top: 30vh;
+  }
+  
+  .button-container {
+    margin-bottom: 20px;
+  }
+  
+  button {
+    background-color: rgb(33, 97, 202);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  button:hover {
+    background-color: rgb(28, 86, 180);
+  }
+  
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+  }
+  
+  .form h2 {
+    color: rgb(33, 97, 202);
+  }
+  
+  .form input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    gap: 15px;
+  }
+  
+  .form button {
+    background-color: rgb(33, 97, 202);
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .form button:hover {
+    background-color: rgb(28, 86, 180);
+  }
+  
