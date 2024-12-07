@@ -1,9 +1,11 @@
 import React from 'react'
+import CustomerDashboard from '../components/CustomerDashboard'
 
 const User = () => {
   return (
     <div>
-      User
+  
+      <CustomerDashboard/>
     </div>
   )
 }

@@ -13,13 +13,13 @@ function validation (values) {
     }
 
     if(values.password === "") {
-        error.email ="Password is required";
+        error.password ="Password is required";
     }
-    else if (!email_pattern.test(values.email)) {
-        error.email = "Password Do not match"
+    else if (!pass_pattern.test(values.password)) {
+        error.password = "Password Do not match"
     }
     else {
-        error.email = ""
+        error.password = ""
     }
     return error;
 }

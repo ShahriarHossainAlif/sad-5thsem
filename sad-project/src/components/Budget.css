@@ -94,6 +94,7 @@
     border: 2px solid transparent;
 }
 .buy-pack-btn {
+    transition: all 0.3s ease-in-out;
     margin-left: 50px;
     padding: 5px 10px;
     border: 2px solid transparent;
@@ -105,7 +106,15 @@
     color: #282828;
 }
 .pack-buttons {
+    display: flex;  
+    justify-content: space-between;
+    text-decoration: none;
     margin-top: 40px;
+}
+.pack-buttons a {
+   color:white;
+    text-decoration: none;
+  
 }
 .title-pack {
     text-align: center;

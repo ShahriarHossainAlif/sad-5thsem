@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import './CustomerSignup.css'; // Import CSS for styling
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import validation from './SignupValidation';
+import axios from 'axios';
 
 function CustomerSignup() {
   const [formData, setFormData] = useState({
@@ -12,19 +14,48 @@ function CustomerSignup() {
     confirmPassword: '',
   });
 
+  const navigate = useNavigate();
+  const [errors, setErrors] = useState({});
+  const [isSubmitting, setIsSubmitting] = useState(false); // Track form submission state
+  const [successMessage, setSuccessMessage] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (formData.password !== formData.confirmPassword) {
-      alert('Passwords do not match!');
-      return;
+    setIsSubmitting(true); // Disable submit button on form submission
+
+    // Validate the form
+    const validationErrors = validation(formData);
+    setErrors(validationErrors);
+
+    if (Object.keys(validationErrors).length === 0) {
+      // Check if passwords match
+      if (formData.password !== formData.confirmPassword) {
+        setErrorMessage('Passwords do not match!');
+        setIsSubmitting(false);
+        return;
+      }
+
+      try {
+        // Send form data to the server
+        const response = await axios.post('http://localhost:8081/sign-up', formData);
+        console.log(response.data);
+        setSuccessMessage('Signup successful! Redirecting to login...');
+        setTimeout(() => {
+          navigate('/login');
+        }, 2000);
+      } catch (error) {
+        console.error(error);
+        setErrorMessage('Error during signup. Please try again.');
+      }
+    } else {
+      setIsSubmitting(false); // Enable button again if validation fails
     }
-    // Handle form submission logic (e.g., send data to the backend)
-    console.log('Customer Signup Data:', formData);
   };
 
   return (
@@ -39,6 +70,8 @@ function CustomerSignup() {
           onChange={handleChange}
           required
         />
+        {errors.username && <span className="text-danger">{errors.username}</span>}
+
         <input
           type="text"
           name="customerName"
@@ -47,6 +80,8 @@ function CustomerSignup() {
           onChange={handleChange}
           required
         />
+        {errors.customerName && <span className="text-danger">{errors.customerName}</span>}
+
         <input
           type="email"
           name="email"
@@ -55,6 +90,8 @@ function CustomerSignup() {
           onChange={handleChange}
           required
         />
+        {errors.email && <span className="text-danger">{errors.email}</span>}
+
         <input
           type="tel"
           name="phoneNumber"
@@ -63,6 +100,8 @@ function CustomerSignup() {
           onChange={handleChange}
           required
         />
+        {errors.phoneNumber && <span className="text-danger">{errors.phoneNumber}</span>}
+
         <input
           type="password"
           name="password"
@@ -71,6 +110,8 @@ function CustomerSignup() {
           onChange={handleChange}
           required
         />
+        {errors.password && <span className="text-danger">{errors.password}</span>}
+
         <input
           type="password"
           name="confirmPassword"
@@ -79,9 +120,16 @@ function CustomerSignup() {
           onChange={handleChange}
           required
         />
-        <button type="submit">Sign Up</button>
+        {errorMessage && <span className="text-danger">{errorMessage}</span>}
+
+        {successMessage && <span className="text-success">{successMessage}</span>}
+
+        <button type="submit" disabled={isSubmitting}>Sign Up</button>
       </form>
-      <Link to="/login">Already have an account?</Link>
+
+      <div className="form-footer">
+        <Link to="/login">Already have an account? Login</Link>
+      </div>
     </div>
   );
 }

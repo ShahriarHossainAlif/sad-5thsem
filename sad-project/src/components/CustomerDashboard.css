@@ -1,0 +1,108 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .dashboard-container {
+    width: 100%;
+    margin: 0 auto;
+  }
+  
+  .dashboard-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #0056ff;
+    color: white;
+    padding: 10px 20px;
+  }
+  
+  .dashboard-nav a {
+    color: white;
+    text-decoration: none;
+    margin-right: 15px;
+  }
+  
+  .dashboard-content {
+    padding: 20px;
+  }
+  
+  .user-info, .stats-section, .purchased-packages, .update-info {
+    margin: 20px 0;
+  }
+  
+  .user-info {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 10px;
+  }
+  
+  .user-info h3 {
+    margin: 0 0 10px;
+  }
+  
+  .user-info p {
+    margin: 5px 0;
+  }
+  
+  .update-btn {
+    margin-top: 10px;
+    background-color: #0056ff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+  }
+  
+  .stats-section {
+    display: flex;
+    gap: 15px;
+  }
+  
+  .stats-card {
+    flex: 1;
+    background-color: #f9f9f9;
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  .stats-card h3 {
+    color: #0056ff;
+    margin: 0;
+  }
+  
+  .stats-card.cancelled h3 {
+    color: red;
+  }
+  
+  .purchased-packages .package-list {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 10px;
+  }
+  
+  .update-info {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 10px;
+  }
+  
+  .update-form input {
+    width: calc(50% - 10px);
+    margin-right: 10px;
+    margin-bottom: 10px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .update-form button {
+    background-color: #0056ff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  

@@ -1,6 +1,7 @@
 import React from 'react'
 import "./Budget.css"
 import BudgetPack from "../assets/BG-img/budget-package-bg.png"
+import { Link } from 'react-router-dom'
 const Budget = () => {
   return (
     <div>
@@ -32,8 +33,8 @@ const Budget = () => {
                     <p class="details">Exclusive-Dinner (Per-1)</p>
                     <p class="details">Single Room (Stadard)</p>
                     <div class="pack-buttons">
-                        <a  class="price-pack">2499 BDT</a>
-                        <a href="#" class="buy-pack-btn">BUY</a>
+                        <button  class="price-pack">2499 BDT</button>
+                        <button><Link to ='/user'>Buy</Link></button>  
                     </div>
                 </div>
                 <h3 class="title-pack">Budget Pack 1</h3>
@@ -46,8 +47,8 @@ const Budget = () => {
                     <p class="details">Exclusive-Dinner (Per-1)</p>
                     <p class="details">Single Room (Stadard)</p>
                     <div class="pack-buttons">
-                        <a  class="price-pack">3299 BDT</a>
-                        <a href="#" class="buy-pack-btn">BUY</a>
+                        <button  class="price-pack">3299 BDT</button>
+                        <button><Link to ='/user'>Buy</Link></button>  
                     </div>
                 </div>
                 <h3 class="title-pack">Budget Pack 2</h3>
@@ -60,8 +61,8 @@ const Budget = () => {
                     <p class="details">Exclusive-Dinner (Per-2)</p>
                     <p class="details">Double Room (Stadard)</p>
                     <div class="pack-buttons">
-                        <a  class="price-pack">8999 BDT</a>
-                        <a href="#" class="buy-pack-btn">BUY</a>
+                        <button  class="price-pack">8999 BDT</button>
+                       <button><Link to ='/user'>Buy</Link></button>  
                     </div>
                 </div>
                 <h3 class="title-pack">Budget Pack 3</h3>

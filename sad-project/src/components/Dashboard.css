@@ -1,0 +1,85 @@
+.dashboard-container {
+    margin: 0 auto;
+    padding: 20px;
+    max-width: 1200px;
+  }
+  
+  h1 {
+    text-align: center;
+    color: #2173ca;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+  }
+  
+  th {
+    background-color: #2173ca;
+    color: white;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  button {
+    margin: 5px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    opacity: 0.8;
+  }
+  
+  button:first-of-type {
+    background-color: #2173ca;
+    color: white;
+  }
+  
+  button:last-of-type {
+    background-color: red;
+    color: white;
+  }
+  .high {
+    display:flex;
+    flex-direction: row;
+    gap: 10px;
+  }
+  .top {
+    margin-top: 20px;
+    border-radius: 10%;
+    background-color:#2173ca;
+    justify-content: center;
+    height: 100px;
+    width:100px;
+  }
+  
+  .zero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .left {
+    margin-left: 20px;
+    border-radius: 10px;
+    background-color:#bbd2ea;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }

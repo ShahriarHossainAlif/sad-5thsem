@@ -8,7 +8,7 @@ function LoginBoth() {
   const [activeForm, setActiveForm] = useState(''); // State to track which form is active
 
   return (
-    <div classname="center-wrapper">
+    <div className="center-wrapper">
         <div className="container">
       <ButtonContainer onClick={setActiveForm} />
 
