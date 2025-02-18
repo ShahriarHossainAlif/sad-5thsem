@@ -4,6 +4,7 @@ import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import {setDoc,doc} from "firebase/firestore";
 import { toast } from "react-toastify";
 import { Link } from "react-router-dom";
+import "./LoginBoth.css";
 function CustomerSignup() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -49,8 +50,8 @@ function CustomerSignup() {
   };
 
   return (
-    <div>
-      <form onSubmit={handleRegister}>
+    <div className="container"> 
+      <form onSubmit={handleRegister} className="form">
         <h2>Customer Signup</h2>
         {error && <p style={{ color: "red" }}>{error}</p>}
         <input type="text" placeholder="Username" onChange={(e) => setName(e.target.value)} required />
