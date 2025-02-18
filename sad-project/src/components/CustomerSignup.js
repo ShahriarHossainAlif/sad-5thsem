@@ -1,135 +1,66 @@
-import React, { useState } from 'react';
-import './CustomerSignup.css'; // Import CSS for styling
-import { Link, useNavigate } from 'react-router-dom';
-import validation from './SignupValidation';
-import axios from 'axios';
-
+import React, { useState } from "react";
+import { auth, db } from "./firebase"; // Now we are correctly importing the initialized `auth`
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+import {setDoc,doc} from "firebase/firestore";
+import { toast } from "react-toastify";
+import { Link } from "react-router-dom";
 function CustomerSignup() {
-  const [formData, setFormData] = useState({
-    username: '',
-    customerName: '',
-    email: '',
-    phoneNumber: '',
-    password: '',
-    confirmPassword: '',
-  });
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [phone, setPhone] = useState(""); 
+  const [error, setError] = useState("");
 
-  const navigate = useNavigate();
-  const [errors, setErrors] = useState({});
-  const [isSubmitting, setIsSubmitting] = useState(false); // Track form submission state
-  const [successMessage, setSuccessMessage] = useState('');
-  const [errorMessage, setErrorMessage] = useState('');
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
-
-  const handleSubmit = async (e) => {
+  const handleRegister = async (e) => {
     e.preventDefault();
-    setIsSubmitting(true); // Disable submit button on form submission
+    setError("");
 
-    // Validate the form
-    const validationErrors = validation(formData);
-    setErrors(validationErrors);
+    if (password !== confirmPassword) {
+      setError("Passwords do not match");
+      return;
+    }
 
-    if (Object.keys(validationErrors).length === 0) {
-      // Check if passwords match
-      if (formData.password !== formData.confirmPassword) {
-        setErrorMessage('Passwords do not match!');
-        setIsSubmitting(false);
-        return;
+    try {
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      const user = userCredential.user;
+      await updateProfile(user, { displayName: name });
+      if(user){
+        await setDoc(doc(db, "Users", user.uid), {
+          email: user.email,
+          name: name,
+          phone: phone
+        })
       }
+      console.log("User created successfully:", user);
+      toast.success("User registered successfully", {
+        position: "top-center",
+        autoClose: 2000,
 
-      try {
-        // Send form data to the server
-        const response = await axios.post('http://localhost:8081/sign-up', formData);
-        console.log(response.data);
-        setSuccessMessage('Signup successful! Redirecting to login...');
-        setTimeout(() => {
-          navigate('/login');
-        }, 2000);
-      } catch (error) {
-        console.error(error);
-        setErrorMessage('Error during signup. Please try again.');
-      }
-    } else {
-      setIsSubmitting(false); // Enable button again if validation fails
+      });
+    } catch (error) {
+      setError(error.message);
+      toast.success(error.message, {
+        position: "bottom-center",
+        autoClose: 2000,
+
+      });
     }
   };
 
   return (
-    <div className="signup-container">
-      <h2>Customer Signup</h2>
-      <form onSubmit={handleSubmit} className="signup-form">
-        <input
-          type="text"
-          name="username"
-          placeholder="Username"
-          value={formData.username}
-          onChange={handleChange}
-          required
-        />
-        {errors.username && <span className="text-danger">{errors.username}</span>}
-
-        <input
-          type="text"
-          name="customerName"
-          placeholder="Customer Name"
-          value={formData.customerName}
-          onChange={handleChange}
-          required
-        />
-        {errors.customerName && <span className="text-danger">{errors.customerName}</span>}
-
-        <input
-          type="email"
-          name="email"
-          placeholder="Email"
-          value={formData.email}
-          onChange={handleChange}
-          required
-        />
-        {errors.email && <span className="text-danger">{errors.email}</span>}
-
-        <input
-          type="tel"
-          name="phoneNumber"
-          placeholder="Phone Number"
-          value={formData.phoneNumber}
-          onChange={handleChange}
-          required
-        />
-        {errors.phoneNumber && <span className="text-danger">{errors.phoneNumber}</span>}
-
-        <input
-          type="password"
-          name="password"
-          placeholder="Password"
-          value={formData.password}
-          onChange={handleChange}
-          required
-        />
-        {errors.password && <span className="text-danger">{errors.password}</span>}
-
-        <input
-          type="password"
-          name="confirmPassword"
-          placeholder="Re-type Password"
-          value={formData.confirmPassword}
-          onChange={handleChange}
-          required
-        />
-        {errorMessage && <span className="text-danger">{errorMessage}</span>}
-
-        {successMessage && <span className="text-success">{successMessage}</span>}
-
-        <button type="submit" disabled={isSubmitting}>Sign Up</button>
+    <div>
+      <form onSubmit={handleRegister}>
+        <h2>Customer Signup</h2>
+        {error && <p style={{ color: "red" }}>{error}</p>}
+        <input type="text" placeholder="Username" onChange={(e) => setName(e.target.value)} required />
+        <input type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)} required />
+        <input type="phone" placeholder="Phone" onChange={(e) => setPhone(e.target.value)} required />
+        <input type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} required />
+        <input type="password" placeholder="Confirm Password" onChange={(e) => setConfirmPassword(e.target.value)} required />
+        <button type="submit">Signup</button>
+        <Link to="/login">Already have an account</Link>
       </form>
-
-      <div className="form-footer">
-        <Link to="/login">Already have an account? Login</Link>
-      </div>
     </div>
   );
 }

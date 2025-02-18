@@ -10,6 +10,7 @@ import User from "./routes/User"
 import AdminDashboard from "./routes/AdminDashboard"
 import { Route, Routes } from "react-router-dom";
 import SignUp from "./routes/SignUp";
+import { ToastContainer } from "react-toastify";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
       <Route path="/admin-dashboard" element={<AdminDashboard/>} />
       <Route path="/sign-up" element={<SignUp/>} />
     </Routes>
+    <ToastContainer />
     </>
   );
 }

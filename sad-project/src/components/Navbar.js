@@ -7,11 +7,11 @@ const Navbar = () => {
     <div>
         <header>
         <nav>
-            <div class="navBar">
-                <div class="nav-logo">
+            <div className="navBar">
+                <div className="nav-logo">
                     <Link to="/"><img src={Logo} alt="Logo"/></Link>
                 </div>
-                <div class="nav-sections">
+                <div className="nav-sections">
                     <ul>
                         
                         <li><Link to="/budget-package">Budget Package</Link></li>
@@ -21,7 +21,7 @@ const Navbar = () => {
                        
                     </ul>
                 </div>
-                <div class="login-signup">
+                <div className="login-signup">
                     <ul>
                         <li><Link to="/user">User</Link></li>
                         <li><Link to="/login">Log in</Link></li>
