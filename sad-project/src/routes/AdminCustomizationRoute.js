@@ -1,20 +1,18 @@
 import React, { useEffect, useState } from 'react'
-import Dashboard from '../components/Dashboard'
 import Navbar from '../components/Navbar'
+import AdminCustomization from '../components/AdminCustomization'
 
-
-function AdminDashboard() {
+function AdminCustomizationRoute() {
     const [isAdmin, setIsAdmin] = useState(false);
     useEffect(() => {
         setIsAdmin(true);
     }, [])
   return (
     <div>
-      <Navbar isAdmin={isAdmin} />
-     
-       <Dashboard/>
+        <Navbar isAdmin={isAdmin}/>
+        <AdminCustomization/>
     </div>
   )
 }
 
-export default AdminDashboard
+export default AdminCustomizationRoute

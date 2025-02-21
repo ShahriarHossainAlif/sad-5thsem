@@ -11,6 +11,8 @@ import AdminDashboard from "./routes/AdminDashboard"
 import { Route, Routes } from "react-router-dom";
 import SignUp from "./routes/SignUp";
 import { ToastContainer } from "react-toastify";
+import AdminCustomizationRoute from "./routes/AdminCustomizationRoute";
+import CustomerCustomizationRoute from "./routes/CustomerCustomizationRoute";
 
 function App() {
   return (
@@ -25,6 +27,8 @@ function App() {
       <Route path="/user" element={<User/>} />
       <Route path="/admin-dashboard" element={<AdminDashboard/>} />
       <Route path="/sign-up" element={<SignUp/>} />
+      <Route path="/admin-customization" element={<AdminCustomizationRoute/>}/>
+      <Route path="customer-customization" element={<CustomerCustomizationRoute/>} />
     </Routes>
     <ToastContainer />
     </>

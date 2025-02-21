@@ -29,11 +29,16 @@ function CustomerDashboard() {
   async function handleLogout() {
     try {
       await auth.signOut();
+      localStorage.removeItem("isUser");
       window.location.href = "/login";
     } catch(error) {
       console.log("Error logging out", error.message);
       
     }
+  }
+  const handleLogOut = () => {
+    localStorage.removeItem("isUser");
+    window.location.href = "/login";
   }
 
   return (
@@ -46,7 +51,7 @@ function CustomerDashboard() {
               <p><strong>Username:</strong> {userInfo.username}</p>
               <p><strong>Email:</strong> {userInfo.email}</p>
               <p><strong>Phone Number:</strong> {userInfo.phone}</p>
-              <button className="update-btn" onClick={handleLogout}>Log Out</button>
+              <button className="update-btn" onClick={handleLogOut}>Log Out</button>
             </>
           ) : (
             <p>Loading user data...</p>

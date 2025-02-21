@@ -12,10 +12,11 @@ function CustomerLogin () {
     e.preventDefault();
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      window.location.href = "/user";
       toast.success("User logged in successfully", {
         position: "top-center",
       });
+      window.localStorage.setItem('isUser', 'true');
+      window.location.href = "/user";
     } catch(error) {
       toast.error(error.message, {
         position: "bottom-center",

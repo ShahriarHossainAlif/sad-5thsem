@@ -2,15 +2,17 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import "./LoginBoth.css";
 
+
 function AdminLogin() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
 
+
   const navigate = useNavigate(); 
 
-  const fixedEmail = "admin@gmail.com"; 
-  const fixedPassword = "admin123"; 
+  const fixedEmail = "a@gmail.com"; 
+  const fixedPassword = "a1234"; 
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -19,6 +21,7 @@ function AdminLogin() {
     if (email === fixedEmail && password === fixedPassword) {
       setErrorMessage('');
       alert('Login successful!');
+      localStorage.setItem('isAdmin', 'true');
       
       navigate('/admin-dashboard');
     } else {

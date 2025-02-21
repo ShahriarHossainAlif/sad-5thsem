@@ -48,6 +48,13 @@ function Dashboard() {
     setEditUser({ ...editUser, [name]: value });
   };
 
+  const handleLogout = () => {
+    localStorage.removeItem("isAdmin");
+    window.location.reload();
+    window.location.href= "/login";
+  }
+
+
   return (
     <div className="dashboard-container">
       <br />
@@ -209,7 +216,7 @@ function Dashboard() {
           </tr>
         </tbody>
       </table>
-      <button>Logout</button>
+      <button onClick={handleLogout}>Logout</button>
     </div>
   );
 }

@@ -1,12 +1,24 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Navbar from '../components/Navbar'
 import HomeCom from '../components/HomeCom'
 import Footer from '../components/Footer'
 
 const Home = () => {
+  const [isAdmin, setIsAdmin] = useState(false);
+  const [isUser, setIsUser] = useState(false);
+    useEffect(() => {
+        const adminStatus= localStorage.getItem('isAdmin');
+        const userStatus= localStorage.getItem('isUser');
+        if(userStatus === 'true'){
+          setIsUser(true);
+      }
+        else if(adminStatus === 'true'){
+            setIsAdmin(true);
+        }
+    }, [])
   return (
     <div>
-     <Navbar/>
+     <Navbar isAdmin={isAdmin} isUser={isUser}/>
      <HomeCom/>
      <Footer/>
     </div>
